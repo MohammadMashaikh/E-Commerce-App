@@ -1,61 +1,72 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+🛒 E-Commerce Application
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This is a full-featured E-Commerce Application built with Laravel, including a website (frontend), an admin panel, and a REST API. It follows modern best practices with clean architecture and scalable design patterns.
 
-## About Laravel
+🚀 Features
+🔑 Authentication & Authorization
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Laravel Breeze for user authentication (registration, login, password reset).
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Laravel Passport for API authentication (JWT tokens).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Two authentication guards:
 
-## Learning Laravel
+web → for customers/users.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+admin → for administrators.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Gate-based Authorization for role & permission handling.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Custom middleware: redirects admins to /admin/dashboard after login.
 
-## Laravel Sponsors
+🏗 Architecture & Design
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Repository Design Pattern implemented with interfaces & repositories for clean separation of concerns.
 
-### Premium Partners
+Service layer for handling business logic.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Queue System (via Laravel Queues) for sending emails asynchronously.
 
-## Contributing
+📦 Admin Panel
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Manage products, roles and permissions, orders, and users.
 
-## Code of Conduct
+Role-based access control via Gates.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Livewire + Alpine.js used for interactive & reactive UI.
 
-## Security Vulnerabilities
+Dashboard for statistics and quick actions.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+🌐 Website (Frontend)
 
-## License
+Browse and search products.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Shopping cart & checkout system.
+
+User account management (profile, orders, etc.).
+
+📡 API (with Passport)
+
+Secure API endpoints for mobile or third-party integrations.
+
+Token-based authentication using Passport.
+
+Supports CRUD operations on products, orders, and users (authorized access only).
+
+⚙️ Tech Stack
+
+Framework: Laravel 12
+
+Auth: Breeze + Passport
+
+Authorization: Laravel Gates
+
+Frontend: Livewire, Alpine.js, Tailwind CSS
+
+Database: MySQL (or any SQL DB)
+
+Queues: Database driver (can be swapped with Redis/Beanstalkd)
+
+Pattern: Repository Pattern (Interfaces + Repositories)
+
+Deployment: Works with IIS / Apache / Nginx
