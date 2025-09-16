@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Admin;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Passport\Passport;
 
@@ -22,6 +23,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+
+        if (app()->environment('production')) {
+            URL::forceScheme('https');
+         }
+
+
         Gate::define('manage-products', function (Admin $admin) {
             return $admin->hasPermission('manage-products');
         });
